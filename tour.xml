@@ -1,0 +1,153 @@
+<krpano version="1.16" title="全景" onstart="startup();">
+
+	<include url="skin/vtourskin.xml" />
+
+	<plugin name="soundinterface"
+			url="%SWFPATH%/plugins/soundinterface.swf"
+			alturl="%SWFPATH%/plugins/soundinterface.js"
+			rootpath=""
+			preload="true"
+			keep="true"
+			/>
+
+	<!-- set skin settings: bingmaps? gyro? thumbnail controlling? tooltips? -->
+	<skin_settings bingmaps="false"
+	               bingmaps_key=""
+	               bingmaps_zoombuttons="false"
+	               gyro="true"
+	               thumbs_width="120" thumbs_height="80" thumbs_padding="10" thumbs_crop="0|40|240|160"
+	               thumbs_opened="false"
+	               thumbs_text="false"
+	               thumbs_dragging="true"
+	               thumbs_onhoverscrolling="false"
+	               thumbs_scrollbuttons="false"
+	               thumbs_scrollindicator="false"
+	               tooltips_thumbs="false"
+	               tooltips_hotspots="false"
+	               tooltips_mapspots="false"
+	               controlbar_offset="20"
+	               />
+
+	<!-- set optional skin logo url -->
+	<layer name="skin_logo" url="" scale="0.25" opened_onclick="openurl('...',_blank);" />
+
+
+	<action name="startup">
+		if(startscene === null, copy(startscene,scene[0].name));
+		loadscene(get(startscene), null, MERGE);
+	</action>
+
+	
+	<scene name="scene_1" title="科教苑北门" onstart="" thumburl="panos/DJI_0218_Panorama.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="180" vlookat="35" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/DJI_0218_Panorama.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/DJI_0218_Panorama.tiles/pano_%s.jpg" />
+			<mobile>
+				<cube url="panos/DJI_0218_Panorama.tiles/mobile_%s.jpg" />
+			</mobile>
+		</image>
+
+		<!-- place your scene hotspots here -->
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="180.133" atv="15.510" linkedscene="scene_2" />
+
+		<events name="currentpano"
+				onnewpano="playsound(bgsnd, 'http://mhfflyinng.gotoip1.com/HXKJ720/music/scene_001.mp3|http://mhfflyinng.gotoip1.com/HXKJ720/music/scene_001.mp3', 0);"
+				onremovepano="stopsound(bgsnd);"
+				/>
+
+	</scene>
+
+	<scene name="scene_2" title="科教苑" onstart="" thumburl="panos/DJI_0256_Panorama.tiles/thumb.jpg" lat="39.563340" lng="19.904324" heading="0.0">
+
+		<view hlookat="50" vlookat="45" fovtype="MFOV" fov="120" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/DJI_0256_Panorama.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/DJI_0256_Panorama.tiles/mobile_%s.jpg" />
+			<mobile>
+				<cube url="panos/DJI_0256_Panorama.tiles/mobile_%s.jpg" />
+			</mobile>
+		</image>
+		<!-- start playing the sound -->
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="50.133" atv="35.510" linkedscene="scene_5" />
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="230.133" atv="15.510" linkedscene="scene_1" />
+		<hotspot name="spot4" style="skin_hotspotstyle" ath="135" atv="15.510" linkedscene="scene_3" />
+		<hotspot name="spot8" style="skin_hotspotstyle" ath="-45" atv="15.510" linkedscene="scene_4" />
+
+		<events name="currentpano"
+				onnewpano="playsound(bgsnd, 'http://mhfflyinng.gotoip1.com/HXKJ720/music/scene_002.mp3|http://mhfflyinng.gotoip1.com/HXKJ720/music/scene_002.mp3', 0);"
+				onremovepano="stopsound(bgsnd);"
+				/>
+	</scene>
+
+	<scene name="scene_3" title="科教苑西门" onstart="" thumburl="panos/DJI_0312_Panorama.tiles/thumb.jpg" lat="39.563340" lng="19.904324" heading="0.0">
+
+		<view hlookat="-50" vlookat="40" fovtype="MFOV" fov="120" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/DJI_0312_Panorama.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/DJI_0312_Panorama.tiles/mobile_%s.jpg" />
+			<mobile>
+				<cube url="panos/DJI_0312_Panorama.tiles/mobile_%s.jpg" />
+			</mobile>
+		</image>
+		<!-- start playing the sound -->
+		<hotspot name="spot5" style="skin_hotspotstyle" ath="-55" atv="15.510" linkedscene="scene_2" />
+
+
+		<!--<events name="currentpano"
+				onnewpano="playsound(bgsnd, 'http://mhfflyinng.gotoip1.com/HXKJ720/music/scene_003.mp3|http://mhfflyinng.gotoip1.com/HXKJ720/music/scene_003.mp3', 0);"
+				onremovepano="stopsound(bgsnd);"
+				/>-->
+	</scene>
+
+	<scene name="scene_4" title="科教苑东门" onstart="" thumburl="panos/DJI_0352_Panorama.tiles/thumb.jpg" lat="39.563340" lng="19.904324" heading="0.0">
+
+		<view hlookat="-55" vlookat="11" fovtype="MFOV" fov="120" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/DJI_0352_Panorama.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/DJI_0352_Panorama.tiles/mobile_%s.jpg" />
+			<mobile>
+				<cube url="panos/DJI_0352_Panorama.tiles/mobile_%s.jpg" />
+			</mobile>
+		</image>
+		<!-- start playing the sound -->
+		<hotspot name="spot6" style="skin_hotspotstyle" ath="-55" atv="15.510" linkedscene="scene_2" />
+
+		<!--<events name="currentpano"
+				onnewpano="playsound(bgsnd, 'http://mhfflyinng.gotoip1.com/HXKJ720/music/scene_003.mp3|http://mhfflyinng.gotoip1.com/HXKJ720/music/scene_003.mp3', 0);"
+				onremovepano="stopsound(bgsnd);"
+				/>-->
+	</scene>
+
+	<scene name="scene_5" title="科教苑南门" onstart="" thumburl="panos/DJI_0392_Panorama.tiles/thumb.jpg" lat="39.563340" lng="19.904324" heading="0.0">
+
+		<view hlookat="-60" vlookat="31" fovtype="MFOV" fov="120" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/DJI_0392_Panorama.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/DJI_0392_Panorama.tiles/mobile_%s.jpg" />
+			<mobile>
+				<cube url="panos/DJI_0392_Panorama.tiles/mobile_%s.jpg" />
+			</mobile>
+		</image>
+		<!-- start playing the sound -->
+		<hotspot name="spot7" style="skin_hotspotstyle" ath="-55" atv="10.510" linkedscene="scene_2" />
+
+		<!--<events name="currentpano"
+				onnewpano="playsound(bgsnd, 'http://mhfflyinng.gotoip1.com/HXKJ720/music/scene_003.mp3|http://mhfflyinng.gotoip1.com/HXKJ720/music/scene_003.mp3', 0);"
+				onremovepano="stopsound(bgsnd);"
+				/>-->
+	</scene>
+
+
+</krpano>
